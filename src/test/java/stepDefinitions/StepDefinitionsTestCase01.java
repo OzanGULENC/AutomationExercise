@@ -71,6 +71,7 @@ public class StepDefinitionsTestCase01 {
 
     @And("Fill details: Title, Name, Email, Password, Date of birth")
     public void fillDetailsTitleNameEmailPasswordDateOfBirth() {
+
     }
 
     @And("Select checkbox Sign up for our newsletter!")
