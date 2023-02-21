@@ -29,4 +29,26 @@ public class PageTestCase01 {
     @FindBy(xpath = "//b[.='Enter Account Information']")
     public WebElement enterAccountInformationText;
 
+    @FindBy(xpath = "//input[@id='id_gender1']")
+    public WebElement accountInformationTitleMRButton;
+
+    @FindBy(xpath = "//input[@id='name']")
+    public WebElement accountInformationNameBox;
+
+    @FindBy(xpath = "//input[@id='email']")
+    public WebElement accountInformationEmailBox;
+
+    @FindBy(xpath = "//input[@id='password']")
+    public WebElement accountInformationPasswordBox;
+
+    @FindBy(xpath = "//div[@id='uniform-days']")
+    public WebElement accountInformationBirthDay;
+
+    @FindBy(xpath = "//div[@id='uniform-months']")
+    public WebElement accountInformationBirthMonth;
+
+    @FindBy(xpath = "//div[@id='uniform-years']")
+    public WebElement accountInformationBirthYear;
+
+
 }
