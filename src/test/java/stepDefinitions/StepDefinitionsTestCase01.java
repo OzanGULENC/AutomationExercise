@@ -12,6 +12,7 @@ import org.openqa.selenium.support.ui.Select;
 import pages.PageTestCase01;
 import utilities.ConfigReader;
 import utilities.Driver;
+import utilities.ReusableMethods;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
@@ -22,6 +23,8 @@ public class StepDefinitionsTestCase01 {
     Faker faker=new Faker();
     Actions actions=new Actions(Driver.getDriver());
     JavascriptExecutor jse=(JavascriptExecutor) Driver.getDriver();
+    Select select;
+    ReusableMethods reusableMethods;
 
     @Given("Navigate to url")
     public void navigateToUrl() {
@@ -104,16 +107,29 @@ public class StepDefinitionsTestCase01 {
 
     @And("Select checkbox Receive special offers from our partners")
     public void selectCheckboxReceiveSpecialOffersFromOurPartners() {
-        jse.executeScript("arguments[0].click();",pageTC01.accountInformationReceiveSpecialCheckBox);
 
+        jse.executeScript("arguments[0].click();",pageTC01.accountInformationReceiveSpecialCheckBox);
     }
 
-    @And("Fill details: First name, Last name, Company, Address, Address{int}, Country, State, City, Zipcode, Mobile Number")
-    public void fillDetailsFirstNameLastNameCompanyAddressAddressCountryStateCityZipcodeMobileNumber(int arg0) {
+    @And("Fill details: First name, Last name, Company, Address, Country, State, City, Zipcode, Mobile Number")
+    public void fillDetailsFirstNameLastNameCompanyAddressCountryStateCityZipcodeMobileNumber() {
+        pageTC01.informationsFirstNameInputBox.sendKeys(faker.name().firstName());
+        pageTC01.informationsLastNameInputBox.sendKeys(faker.name().lastName());
+        pageTC01.informationsCompanyInputBox.sendKeys(faker.company().name());
+        pageTC01.informationsAdress1InputBox.sendKeys(faker.address().fullAddress());
+        select=new Select(pageTC01.informationsCountryDropDown);
+        select.selectByValue("Canada");
+        pageTC01.informationsStateInputBox.sendKeys(faker.address().state());
+        pageTC01.informationsCityInputBox.sendKeys(faker.address().city());
+        pageTC01.informationsZipcodeInputBox.sendKeys(faker.address().zipCode());
+        pageTC01.informationsMobileNumberInputBox.sendKeys(faker.phoneNumber().cellPhone());
+        ReusableMethods.waitFor(5);
+
     }
 
     @And("Click Create Account button")
     public void clickCreateAccountButton() {
+        jse.executeScript("arguments[0].click();",pageTC01.informationCreateAccountSubmitButton);
     }
 
     @And("Verify that ACCOUNT CREATED is visible")
@@ -135,6 +151,5 @@ public class StepDefinitionsTestCase01 {
     @And("Verify that ACCOUNT DELETED is visible and click Continue button")
     public void verifyThatACCOUNTDELETEDIsVisibleAndClickContinueButton() {
     }
-
 
 }

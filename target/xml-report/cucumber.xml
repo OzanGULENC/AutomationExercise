@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testsuite errors="0" failures="0" name="io.cucumber.core.plugin.JUnitFormatter" skipped="0" tests="1" time="35.277">
-    <testcase classname="TestCase01" name="Register User" time="34.789">
+<testsuite errors="0" failures="0" name="io.cucumber.core.plugin.JUnitFormatter" skipped="0" tests="1" time="48.961">
+    <testcase classname="TestCase01" name="Register User" time="48.108">
         <system-out>
             <![CDATA[Given Navigate to url.......................................................passed
 When Verify that home page is visible successfully..........................passed
@@ -12,7 +12,7 @@ And Verify that ENTER ACCOUNT INFORMATION is visible........................pass
 And Fill details: Title, Name, Email, Password, Date of birth...............passed
 And Select checkbox Sign up for our newsletter!.............................passed
 And Select checkbox Receive special offers from our partners................passed
-And Fill details: First name, Last name, Company, Address, Address2, Country, State, City, Zipcode, Mobile Number.passed
+And Fill details: First name, Last name, Company, Address, Country, State, City, Zipcode, Mobile Number.passed
 And Click Create Account button.............................................passed
 And Verify that ACCOUNT CREATED is visible..................................passed
 And Click Continue button...................................................passed
