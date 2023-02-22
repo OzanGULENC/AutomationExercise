@@ -41,14 +41,25 @@ public class PageTestCase01 {
     @FindBy(xpath = "//input[@id='password']")
     public WebElement accountInformationPasswordBox;
 
-    @FindBy(xpath = "//div[@id='uniform-days']")
+    @FindBy(xpath = "//select[@id='days']")
     public WebElement accountInformationBirthDay;
 
-    @FindBy(xpath = "//div[@id='uniform-months']")
+    @FindBy(xpath = "//select[@id='months']")
     public WebElement accountInformationBirthMonth;
 
-    @FindBy(xpath = "//div[@id='uniform-years']")
+    @FindBy(xpath = "//select[@id='years']")
     public WebElement accountInformationBirthYear;
+
+    @FindBy(xpath = "//input[@id='newsletter']")
+    public WebElement accountInformationNewsletterCheckBox;
+
+    @FindBy(xpath = "//input[@id='optin']")
+    public WebElement accountInformationReceiveSpecialCheckBox;
+
+
+
+
+
 
 
 }
