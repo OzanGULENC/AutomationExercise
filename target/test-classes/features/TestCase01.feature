@@ -12,7 +12,7 @@ Feature: TestCase01
     And Fill details: Title, Name, Email, Password, Date of birth
     And Select checkbox Sign up for our newsletter!
     And Select checkbox Receive special offers from our partners
-    And Fill details: First name, Last name, Company, Address, Address2, Country, State, City, Zipcode, Mobile Number
+    And Fill details: First name, Last name, Company, Address, Country, State, City, Zipcode, Mobile Number
     And Click Create Account button
     And Verify that ACCOUNT CREATED is visible
     And Click Continue button

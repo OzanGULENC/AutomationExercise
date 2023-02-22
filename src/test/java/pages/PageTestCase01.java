@@ -56,6 +56,47 @@ public class PageTestCase01 {
     @FindBy(xpath = "//input[@id='optin']")
     public WebElement accountInformationReceiveSpecialCheckBox;
 
+    @FindBy(xpath = "//input[@id='first_name']")
+    public WebElement informationsFirstNameInputBox;
+
+    @FindBy(xpath = "//input[@id='last_name']")
+    public WebElement informationsLastNameInputBox;
+
+    @FindBy(xpath = "//input[@id='company']")
+    public WebElement informationsCompanyInputBox;
+
+    @FindBy(xpath = "//input[@id='address1']")
+    public WebElement informationsAdress1InputBox;
+
+    @FindBy(xpath = "//select[@id='country']")
+    public WebElement informationsCountryDropDown;
+
+    @FindBy(xpath = "//input[@id='state']")
+    public WebElement informationsStateInputBox;
+
+    @FindBy(xpath = "//input[@id='city']")
+    public WebElement informationsCityInputBox;
+
+    @FindBy(xpath = "//input[@id='zipcode']")
+    public WebElement informationsZipcodeInputBox;
+
+    @FindBy(xpath = "//input[@id='mobile_number']")
+    public WebElement informationsMobileNumberInputBox;
+
+    @FindBy(xpath = "//section//button[@type='submit']")
+    public WebElement informationCreateAccountSubmitButton;
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
