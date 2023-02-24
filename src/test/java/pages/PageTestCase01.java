@@ -86,6 +86,33 @@ public class PageTestCase01 {
     @FindBy(xpath = "//section//button[@type='submit']")
     public WebElement informationCreateAccountSubmitButton;
 
+    @FindBy(xpath = "//b[normalize-space(text())='Account Created!']")
+    public WebElement accountCreatedText;
+
+    @FindBy(xpath = "//a[@data-qa='continue-button']")
+    public WebElement accountCreatedContinueButton;
+
+
+    @FindBy(xpath = "//iframe[@id='aswift_2']")
+    public WebElement iframeOne;
+
+    @FindBy(xpath = "//iframe[@id='ad_iframe']")
+    public WebElement iframeTwo;
+
+    @FindBy(xpath = "//div[@id='dismiss-button']")
+    public WebElement iframeDismissButton;
+
+    @FindBy(xpath = "(//ul[@class='nav navbar-nav']/li/a)[10]")
+    public WebElement loggedInAsNameButton;
+
+    @FindBy(xpath = "//i[@class='fa fa-trash-o']")
+    public WebElement deleteAccountButton;
+
+    @FindBy(xpath = "//h2[@data-qa='account-deleted']")
+    public WebElement accountDeletedText;
+
+    @FindBy(xpath = "//a[@data-qa='continue-button']")
+    public WebElement deleteAccountContinueButton;
 
 
 

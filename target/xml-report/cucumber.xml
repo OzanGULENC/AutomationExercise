@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testsuite errors="0" failures="0" name="io.cucumber.core.plugin.JUnitFormatter" skipped="0" tests="1" time="48.961">
-    <testcase classname="TestCase01" name="Register User" time="48.108">
+<testsuite errors="0" failures="0" name="io.cucumber.core.plugin.JUnitFormatter" skipped="0" tests="1" time="37.406">
+    <testcase classname="TestCase01" name="Register User" time="36.981">
         <system-out>
             <![CDATA[Given Navigate to url.......................................................passed
 When Verify that home page is visible successfully..........................passed

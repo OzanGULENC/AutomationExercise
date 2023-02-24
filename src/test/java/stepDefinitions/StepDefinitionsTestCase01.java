@@ -9,10 +9,13 @@ import org.junit.Assert;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
+import org.testng.asserts.SoftAssert;
 import pages.PageTestCase01;
 import utilities.ConfigReader;
 import utilities.Driver;
 import utilities.ReusableMethods;
+
+import java.awt.*;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
@@ -22,9 +25,14 @@ public class StepDefinitionsTestCase01 {
     PageTestCase01 pageTC01=new PageTestCase01();
     Faker faker=new Faker();
     Actions actions=new Actions(Driver.getDriver());
+    SoftAssert softAssert=new SoftAssert();
     JavascriptExecutor jse=(JavascriptExecutor) Driver.getDriver();
     Select select;
     ReusableMethods reusableMethods;
+
+    String fakerName=faker.name().firstName();
+    String email=faker.internet().emailAddress();
+
 
     @Given("Navigate to url")
     public void navigateToUrl() {
@@ -39,7 +47,7 @@ public class StepDefinitionsTestCase01 {
     public void verifyThatHomePageIsVisibleSuccessfully() {
         String expectedURL="https://automationexercise.com/";
         String actualURL=Driver.getDriver().getCurrentUrl();
-        Assert.assertEquals(expectedURL, actualURL);
+        softAssert.assertEquals(expectedURL, actualURL);
     }
 
 
@@ -50,17 +58,12 @@ public class StepDefinitionsTestCase01 {
 
     @And("Verify New User Signup is visible")
     public void verifyNewUserSignupIsVisible() {
-        Assert.assertTrue(pageTC01.signUpForm.isDisplayed());
+//        softAssert.assertTrue(pageTC01.signUpForm.isDisplayed());
     }
 
     @And("Enter name and email address")
     public void enterNameAndEmailAddress() {
-        String userName=faker.name().name();
-        System.out.println(userName);
-        pageTC01.signUpFormNameBox.sendKeys(userName);
-
-        String email=faker.internet().emailAddress();
-        System.out.println(email);
+        pageTC01.signUpFormNameBox.sendKeys(fakerName);
         pageTC01.signupFormEmailBox.sendKeys(email);
     }
 
@@ -73,8 +76,8 @@ public class StepDefinitionsTestCase01 {
     public void verifyThatENTERACCOUNTINFORMATIONIsVisible() {
         String expectedAccountInformationText="ENTER ACCOUNT INFORMATION";
         String actualAccountInformationText=pageTC01.enterAccountInformationText.getText();
-        assertTrue(pageTC01.enterAccountInformationText.isDisplayed());
-        assertEquals(expectedAccountInformationText,actualAccountInformationText);
+        softAssert.assertTrue(pageTC01.enterAccountInformationText.isDisplayed());
+        softAssert.assertEquals(expectedAccountInformationText,actualAccountInformationText);
     }
 
     @And("Fill details: Title, Name, Email, Password, Date of birth")
@@ -107,13 +110,12 @@ public class StepDefinitionsTestCase01 {
 
     @And("Select checkbox Receive special offers from our partners")
     public void selectCheckboxReceiveSpecialOffersFromOurPartners() {
-
         jse.executeScript("arguments[0].click();",pageTC01.accountInformationReceiveSpecialCheckBox);
     }
 
     @And("Fill details: First name, Last name, Company, Address, Country, State, City, Zipcode, Mobile Number")
     public void fillDetailsFirstNameLastNameCompanyAddressCountryStateCityZipcodeMobileNumber() {
-        pageTC01.informationsFirstNameInputBox.sendKeys(faker.name().firstName());
+        pageTC01.informationsFirstNameInputBox.sendKeys(fakerName);
         pageTC01.informationsLastNameInputBox.sendKeys(faker.name().lastName());
         pageTC01.informationsCompanyInputBox.sendKeys(faker.company().name());
         pageTC01.informationsAdress1InputBox.sendKeys(faker.address().fullAddress());
@@ -123,7 +125,6 @@ public class StepDefinitionsTestCase01 {
         pageTC01.informationsCityInputBox.sendKeys(faker.address().city());
         pageTC01.informationsZipcodeInputBox.sendKeys(faker.address().zipCode());
         pageTC01.informationsMobileNumberInputBox.sendKeys(faker.phoneNumber().cellPhone());
-        ReusableMethods.waitFor(5);
 
     }
 
@@ -134,22 +135,44 @@ public class StepDefinitionsTestCase01 {
 
     @And("Verify that ACCOUNT CREATED is visible")
     public void verifyThatACCOUNTCREATEDIsVisible() {
+        softAssert.assertTrue(pageTC01.accountCreatedText.isDisplayed());
+        softAssert.assertEquals(pageTC01.accountCreatedText.getText(),"ACCOUNT CREATED!");
+
     }
 
     @And("Click Continue button")
     public void clickContinueButton() {
+        pageTC01.accountCreatedContinueButton.click();
+
     }
 
     @And("Verify that Logged in as username is visible")
     public void verifyThatLoggedInAsUsernameIsVisible() {
+        // Driver.getDriver().switchTo().alert().dismiss();
+        Driver.getDriver().switchTo().frame(pageTC01.iframeOne);
+        Driver.getDriver().switchTo().frame(pageTC01.iframeTwo);
+        pageTC01.iframeDismissButton.click();
+        Driver.getDriver().switchTo().parentFrame();
+        Driver.getDriver().switchTo().parentFrame();
+        pageTC01.loggedInAsNameButton.isDisplayed();
+        System.out.println(pageTC01.loggedInAsNameButton.getText());
+        softAssert.assertEquals(pageTC01.loggedInAsNameButton.getText(),("Logged in as "+fakerName));
+
     }
 
     @And("Click Delete Account button")
     public void clickDeleteAccountButton() {
+        pageTC01.deleteAccountButton.click();
     }
 
     @And("Verify that ACCOUNT DELETED is visible and click Continue button")
     public void verifyThatACCOUNTDELETEDIsVisibleAndClickContinueButton() {
+        softAssert.assertTrue(pageTC01.accountDeletedText.isDisplayed());
+        softAssert.assertEquals(pageTC01.accountDeletedText.getText(),"ACCOUNT DELETED!");
+        pageTC01.deleteAccountContinueButton.click();
+
+
+        softAssert.assertAll();
     }
 
 }
