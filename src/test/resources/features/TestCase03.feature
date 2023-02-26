@@ -1,7 +1,9 @@
+@Ozan
+@TC03
 Feature: TestCase03
-  Scenario:
+  Scenario: Login User with incorrect email and password
 
-Given  Navigate to url
+Given Navigate to url
 When Verify that home page is visible successfully
 Then Click on Signup Login button
 And Verify Login to your account is visible

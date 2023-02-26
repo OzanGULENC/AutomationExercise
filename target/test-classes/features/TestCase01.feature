@@ -1,4 +1,5 @@
 @Ozan
+@TC01
 Feature: TestCase01
   Scenario: Register User
 
