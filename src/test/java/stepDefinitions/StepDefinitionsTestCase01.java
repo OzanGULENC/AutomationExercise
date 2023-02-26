@@ -1,11 +1,7 @@
 package stepDefinitions;
 
 import com.github.javafaker.Faker;
-import io.cucumber.java.en.And;
-import io.cucumber.java.en.Given;
-import io.cucumber.java.en.Then;
-import io.cucumber.java.en.When;
-import org.junit.Assert;
+import io.cucumber.java.en.*;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
@@ -14,11 +10,6 @@ import pages.PageTestCase01;
 import utilities.ConfigReader;
 import utilities.Driver;
 import utilities.ReusableMethods;
-
-import java.awt.*;
-
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
 
 public class StepDefinitionsTestCase01 {
 
@@ -31,7 +22,7 @@ public class StepDefinitionsTestCase01 {
     ReusableMethods reusableMethods;
 
     String fakerName=faker.name().firstName();
-    String email=faker.internet().emailAddress();
+    String fakerEmail=faker.internet().emailAddress();
 
 
     @Given("Navigate to url")
@@ -58,13 +49,14 @@ public class StepDefinitionsTestCase01 {
 
     @And("Verify New User Signup is visible")
     public void verifyNewUserSignupIsVisible() {
-//        softAssert.assertTrue(pageTC01.signUpForm.isDisplayed());
+        softAssert.assertTrue(pageTC01.signUpForm.isDisplayed());
     }
 
     @And("Enter name and email address")
     public void enterNameAndEmailAddress() {
         pageTC01.signUpFormNameBox.sendKeys(fakerName);
-        pageTC01.signupFormEmailBox.sendKeys(email);
+        pageTC01.signupFormEmailBox.sendKeys(fakerEmail);
+        System.out.println("Name : " + fakerName + "Email : " + fakerEmail);
     }
 
     @And("Click Signup button")
@@ -171,8 +163,8 @@ public class StepDefinitionsTestCase01 {
         softAssert.assertEquals(pageTC01.accountDeletedText.getText(),"ACCOUNT DELETED!");
         pageTC01.deleteAccountContinueButton.click();
 
-
         softAssert.assertAll();
+        Driver.getDriver().quit();
     }
 
 }

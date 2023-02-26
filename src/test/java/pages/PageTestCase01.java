@@ -114,6 +114,27 @@ public class PageTestCase01 {
     @FindBy(xpath = "//a[@data-qa='continue-button']")
     public WebElement deleteAccountContinueButton;
 
+    // TestCase03
+
+    @FindBy(xpath = "//div[@class='login-form']")
+    public WebElement loginYourToAccountForm;
+
+    @FindBy(xpath = "//input[@data-qa='login-email']")
+    public WebElement loginAccountFormEmailInput;
+
+    @FindBy(xpath = "//input[@data-qa='login-password']")
+    public WebElement loginAccountFormPasswordInput;
+
+    @FindBy(xpath = "//button[@data-qa='login-button']")
+    public WebElement loginAccountFormLoginButton;
+
+    @FindBy(xpath = "//p[text()='Your email or password is incorrect!']")
+    public WebElement loginAccountFormIncorrectText;
+
+
+
+
+
 
 
 
