@@ -7,8 +7,8 @@ import utilities.Driver;
 
 
 
-public class PageTestCase01 {
-    public PageTestCase01(){ PageFactory.initElements(Driver.getDriver(),this);}
+public class PageAutomationExercise {
+    public PageAutomationExercise(){ PageFactory.initElements(Driver.getDriver(),this);}
 
 
     @FindBy(xpath = "//a[@href='/login']")
@@ -130,6 +130,17 @@ public class PageTestCase01 {
 
     @FindBy(xpath = "//p[text()='Your email or password is incorrect!']")
     public WebElement loginAccountFormIncorrectText;
+
+    //TestCase05
+
+    @FindBy(xpath = "//p[text()='Email Address already exist!']")
+    public WebElement signUpFormEmailAddressAlreadyExistText;
+
+    //TestCase07
+
+    @FindBy(xpath = "//a[@href='/test_cases']")
+    public WebElement homePageTestCaseButton;
+
 
 
 

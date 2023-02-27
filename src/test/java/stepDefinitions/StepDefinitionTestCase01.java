@@ -6,14 +6,14 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.asserts.SoftAssert;
-import pages.PageTestCase01;
+import pages.PageAutomationExercise;
 import utilities.ConfigReader;
 import utilities.Driver;
 import utilities.ReusableMethods;
 
-public class StepDefinitionsTestCase01 {
+public class StepDefinitionTestCase01 {
 
-    PageTestCase01 pageTC01=new PageTestCase01();
+    PageAutomationExercise pageTC01=new PageAutomationExercise();
     Faker faker=new Faker();
     Actions actions=new Actions(Driver.getDriver());
     SoftAssert softAssert=new SoftAssert();
