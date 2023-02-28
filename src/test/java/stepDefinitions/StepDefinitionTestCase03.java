@@ -3,14 +3,13 @@ package stepDefinitions;
 import io.cucumber.java.en.*;
 import org.testng.asserts.SoftAssert;
 import pages.PageAutomationExercise;
+import utilities.ConfigReader;
 import utilities.Driver;
 
 public class StepDefinitionTestCase03 {
 
     PageAutomationExercise pageTC03=new PageAutomationExercise();
     SoftAssert softAssert=new SoftAssert();
-
-
 
     @And("Verify Login to your account is visible")
     public void verifyLoginToYourAccountIsVisible() {

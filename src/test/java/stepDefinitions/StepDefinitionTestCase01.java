@@ -9,7 +9,6 @@ import org.testng.asserts.SoftAssert;
 import pages.PageAutomationExercise;
 import utilities.ConfigReader;
 import utilities.Driver;
-import utilities.ReusableMethods;
 
 public class StepDefinitionTestCase01 {
 
@@ -19,7 +18,6 @@ public class StepDefinitionTestCase01 {
     SoftAssert softAssert=new SoftAssert();
     JavascriptExecutor jse=(JavascriptExecutor) Driver.getDriver();
     Select select;
-    ReusableMethods reusableMethods;
 
     String fakerName=faker.name().firstName();
     String fakerEmail=faker.internet().emailAddress();

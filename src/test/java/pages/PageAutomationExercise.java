@@ -141,6 +141,14 @@ public class PageAutomationExercise {
     @FindBy(xpath = "//a[@href='/test_cases']")
     public WebElement homePageTestCaseButton;
 
+    @FindBy(xpath = "//iframe[@id='aswift_9']")
+    public WebElement testCasePageİframeOne;
+
+    @FindBy(xpath = "//iframe[@id='ad_iframe']")
+    public WebElement testCasePageİframeTwo;
+
+
+
 
 
 
