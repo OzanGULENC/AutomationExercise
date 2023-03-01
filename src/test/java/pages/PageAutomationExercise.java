@@ -147,6 +147,35 @@ public class PageAutomationExercise {
     @FindBy(xpath = "//iframe[@id='ad_iframe']")
     public WebElement testCasePageİframeTwo;
 
+    //TestCase09
+
+    @FindBy(xpath = "//a[@href='/products']")
+    public WebElement homePageProductsButton;
+
+    @FindBy(xpath = "//iframe[@id='aswift_9']")
+    public WebElement productsPageIframeOne;
+
+    @FindBy(xpath = "//iframe[@id='ad_iframe']")
+    public WebElement productsPageIframeTwo;
+
+    @FindBy(xpath = "//div[@id='dismiss-button']")
+    public WebElement productsPageIframeDismissButton;
+    
+    @FindBy(xpath = "//input[@id='search_product']")
+    public WebElement searchProductInputBox;
+
+    @FindBy(xpath = "//button[@id='submit_search']")
+    public WebElement searchProductSubmitButton;
+
+    @FindBy(xpath = "//h2[@class='title text-center']")
+    public WebElement searchedProductsTitleText;
+
+
+
+
+
+
+
 
 
 

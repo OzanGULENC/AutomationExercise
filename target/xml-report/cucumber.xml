@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testsuite errors="0" failures="0" name="io.cucumber.core.plugin.JUnitFormatter" skipped="0" tests="1" time="23.763">
-    <testcase classname="TestCase07" name="Verify Test Cases Page" time="22.797">
+<testsuite errors="0" failures="0" name="io.cucumber.core.plugin.JUnitFormatter" skipped="0" tests="1" time="35.084">
+    <testcase classname="Test Case 09" name=": Search Product" time="34.613">
         <system-out>
             <![CDATA[Given Navigate to url.......................................................passed
 When Verify that home page is visible successfully..........................passed
-Then Click on Test Cases button.............................................passed
-And Verify user is navigated to test cases page successfully................passed
+Then Click on Products button...............................................passed
+And Verify user is navigated to ALL PRODUCTS page successfully..............passed
+And Enter product name in search input and click search button..............passed
+And Verify "SEARCHED PRODUCTS" is visible...................................passed
+And Verify all the products related to search are visible...................passed
 ]]>
         </system-out>
     </testcase>
